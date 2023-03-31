@@ -1,3 +1,4 @@
 # e-SuratDesa
-Web Aplikasi Pelayanan Surat Administrasi Desa Online
-©rajikhbfaj-2021
+Tugas Akhir Jurnal Sistem Informasi Pelayanan Administrasi
+Rama Fadillah & Dede Maulana
+©2023
