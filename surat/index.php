@@ -44,6 +44,15 @@
 	<div class="container-fluid">
 		<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 			<div class="row">
+			<div class="col-sm-3 mt-4">
+					<div class="card">
+						<img src="../assets/img/logo-kua-remove.png" class="card-img-top" alt="...">
+						<div class="card-body text-center">
+							<h5 class="card-title">SURAT REKOMENDASI</h5><br><br>
+							<a href="surat_rekomendasi/" class="btn btn-info">BUAT SURAT</a>
+						</div>
+					</div>
+				</div>
 				<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/logo-kua-remove.png" class="card-img-top" alt="...">
@@ -52,8 +61,8 @@
 							<a href="surat_ktp_sementara/" class="btn btn-info">BUAT SURAT</a>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-3 mt-4">
+				</div> 
+				<!--<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/menu-surat.png" class="card-img-top" alt="...">
 						<div class="card-body text-center">
@@ -62,7 +71,7 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="col-sm-3 mt-4">
+				<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/menu-surat.png" class="card-img-top" alt="...">
 						<div class="card-body text-center">
@@ -70,7 +79,7 @@
 							<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/menu-surat.png" class="card-img-top" alt="...">
@@ -80,7 +89,7 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="col-sm-3 mt-4">
+				<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/menu-surat.png" class="card-img-top" alt="...">
 						<div class="card-body text-center">
@@ -97,7 +106,7 @@
 							<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<div class="col-sm-3 mt-4">
 					<div class="card">
 						<img src="../assets/img/menu-surat.png" class="card-img-top" alt="...">
@@ -160,7 +169,7 @@
 							<a href="surat_keterangan_kehilangan/" class="btn btn-info">BUAT SURAT</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

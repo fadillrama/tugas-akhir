@@ -10,7 +10,7 @@
 	$update 	= mysqli_query($connect, $qUpdate);
 
 	if($update){
-		header('location:../../');
+		header('location:../../../surat_selesai/index.php');
 	}else{
 	 	echo ("<script LANGUAGE='JavaScript'>window.alert('Gagal mengonfirmasi surat'); window.location.href='#'</script>");
 	}

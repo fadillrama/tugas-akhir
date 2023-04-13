@@ -201,7 +201,6 @@ include('../part/header.php');
       <div class="row">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h3 class="box-title">Selamat Datang</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -212,12 +211,11 @@ include('../part/header.php');
               <form class="form-horizontal" method="post" action="simpan-penduduk.php">
                 <div class="col-md-12">
                   <div class="col-md-4" style="text-align: center;">
-                    <img style="max-width:300px; width:100%; height:auto;" src="../../assets/img/logo-banten.png"><br>
+                    <img style="max-width:300px; width:100%; height:auto;" src="../../assets/img/logo-kua-remove.png"><br>
                     <?php
                     $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
                     foreach ($qTampilDesa as $row) {
                     ?>
-                      <p style="font-size: 20pt; font-weight: 500; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong>
                         <hr>
                       <?php
                     }
@@ -259,9 +257,9 @@ include('../part/header.php');
                       <p>Hallo, <strong><?php echo $_SESSION['lvl']; ?></strong>
                     </div>
                     <div style="font-size: 15pt; font-weight: 500;">
-                      <p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Mekar Kondang.</strong></a></p>
+                      <p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Sistem Informasi Pengajuan Surat KUA Kecamatan Panjalu</strong></a></p>
                     </div><br><br><br>
-                    <div style="font-size: 10pt; font-weight: 500;">© e-<b>SuratDesa</b> 2022. Hak Cipta Dilindungi.</div>
+                    <div style="font-size: 10pt; font-weight: 500;">© Rama & Dede 2023.</div>
                   </div>
                 </div>
               </form>
