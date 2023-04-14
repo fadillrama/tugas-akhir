@@ -9,7 +9,7 @@
         $id_profil_desa = "1";
 
         $qTambahSurat = "INSERT INTO surat_keterangan_tidak_mampu (jenis_surat, nik, keperluan, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$keperluan', '$status_surat', '$id_profil_desa')";
-        $TambahSurat = mysqli_query($connect, $qTambahSurat);
+        $TambahSurat = mysqli_query($connect, $qTambahSurat, $TambahSurat);
         header("location:../index.php?pesan=berhasil");
     }
 ?>
