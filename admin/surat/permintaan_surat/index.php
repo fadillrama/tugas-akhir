@@ -84,16 +84,7 @@ include('../part/header.php');
           </thead>
           <tbody>
             <?php
-            $qTampil = mysqli_query($connect, "SELECT penduduk.nama, surat_ktp_sementara.id_ks, surat_ktp_sementara.no_surat, surat_ktp_sementara.nik, surat_ktp_sementara.jenis_surat, surat_ktp_sementara.status_surat, surat_ktp_sementara.tanggal_surat FROM penduduk LEFT JOIN surat_ktp_sementara ON surat_ktp_sementara.nik = penduduk.nik WHERE surat_ktp_sementara.status_surat='pending' 
-                UNION SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_keterangan_lahir.id_skl, surat_keterangan_lahir.no_surat, surat_keterangan_lahir.nik, surat_keterangan_lahir.jenis_surat, surat_keterangan_lahir.status_surat, surat_keterangan_lahir.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_lahir ON surat_keterangan_lahir.nik = penduduk.nik WHERE surat_keterangan_lahir.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_pengantar_pindah.id_pp, surat_pengantar_pindah.no_surat, surat_pengantar_pindah.nik, surat_pengantar_pindah.jenis_surat, surat_pengantar_pindah.status_surat, surat_pengantar_pindah.tanggal_surat FROM penduduk LEFT JOIN surat_pengantar_pindah ON surat_pengantar_pindah.nik = penduduk.nik WHERE surat_pengantar_pindah.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_keterangan.id_sk, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.jenis_surat, surat_keterangan.status_surat, surat_keterangan.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_keterangan_domisili.id_skd, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='pending' 
-                UNION SELECT penduduk.nama, surat_keterangan_kehilangan.id_skh, surat_keterangan_kehilangan.no_surat, surat_keterangan_kehilangan.nik, surat_keterangan_kehilangan.jenis_surat, surat_keterangan_kehilangan.status_surat, surat_keterangan_kehilangan.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_kehilangan ON surat_keterangan_kehilangan.nik = penduduk.nik WHERE surat_keterangan_kehilangan.status_surat='pending' 
-                UNION SELECT penduduk.nama, surat_keterangan_usaha.id_sku, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_lapor_hajatan.id_slh, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='pending' 
-                UNION SELECT penduduk.nama, surat_pengantar_skck.id_sps, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='pending'");
+            $qTampil = mysqli_query($connect, "SELECT penduduk.nama, surat_rekomendasi.id_rekomendasi, surat_rekomendasi.no_surat, surat_rekomendasi.nik, surat_rekomendasi.jenis_surat, surat_rekomendasi.status_surat, surat_rekomendasi.tanggal_surat FROM penduduk LEFT JOIN surat_rekomendasi ON surat_rekomendasi.nik = penduduk.nik WHERE surat_rekomendasi.status_surat='pending'");
             if ($qTampil->num_rows > 0) {
               foreach ($qTampil as $row) {
             ?>
@@ -125,66 +116,10 @@ include('../part/header.php');
                   <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
                   <td>
                     <?php
-                    if ($row['jenis_surat'] == "Surat ktp sementara") {
+                    if ($row['jenis_surat'] == "Surat Rekomendasi") {
                     ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_ktp_sementara/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_ktp_sementara/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan Domisili") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_domisili/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_domisili/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan Tidak Mampu") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_tidak_mampu/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_tidak_mampu/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan lahir") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_lahir/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_lahir/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat pengantar pindah") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_pengantar_pindah/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_pengantar_pindah/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan Berkelakuan Baik") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_berkelakuan_baik/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan Kepemilikan Kendaraan Bermotor") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_kepemilikan_kendaraan_bermotor/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_kepemilikan_kendaraan_bermotor/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan kehilangan") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_kehilangan/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_kehilangan/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Keterangan usaha") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_usaha/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_keterangan_usaha/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Lapor Hajatan") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_lapor_hajatan/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/ssurat_lapor_hajatan/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                    <?php
-                    } else if ($row['jenis_surat'] == "Surat Pengantar SKCK") {
-                    ?>
-                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_pengantar_skck/index.php?id=<?php echo $row['id_ks']; ?>'><i class="fa fa-check"></i></a>
-                      <a class="btn btn-danger btn-sm" href='hapus/surat_pengantar_skck/hapus.php?id=<?php echo $row['id_ks']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                      <a class="btn btn-success btn-sm" href='konfirmasi/surat_rekomendasi/index.php?id=<?php echo $row['id_rekomendasi']; ?>'><i class="fa fa-check"></i></a>
+                      <a class="btn btn-danger btn-sm" href='hapus/surat_rekomendasi/hapus.php?id=<?php echo $row['id_rekomendasi']; ?> 'onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
                     <?php
                     }
                     ?>

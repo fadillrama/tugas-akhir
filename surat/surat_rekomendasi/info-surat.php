@@ -181,7 +181,7 @@ if ($row > 0) {
 										<div class="form-group">
 											<label class="col-sm-12" style="font-weight: 500;">Tanggal Lahir</label>
 											<div class="col-sm-12">
-												<input type="text" name="tanggal_per" class="form-control" style="text-transform: capitalize;" placeholder="Tanggal Lahir" required>
+												<input type="date" name="tanggal_per" class="form-control" style="text-transform: capitalize;" placeholder="Tanggal Lahir" required>
 											</div>
 										</div>
 									</div>
